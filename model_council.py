@@ -74,7 +74,7 @@ def query_claude(prompt, api_key, model, max_tok):
 def query_gpt(prompt, api_key, model, max_tok):
     client = OpenAI(api_key=api_key)
     r = client.chat.completions.create(
-        model=model, max_tokens=max_tok,
+        model=model, max_completion_tokens=max_tok,
         messages=[{"role": "user", "content": prompt}]
     )
     return r.choices[0].message.content
